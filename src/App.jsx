@@ -1,8 +1,9 @@
-function App() {
+import Dashboard from "./pages/Dashboard.jsx"
 
+function App() {
   return (
     <>
-    hii
+     <Dashboard/>
     </>
   )
 }
