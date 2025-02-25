@@ -1,4 +1,4 @@
-import { Form, Modal, Input, InputNumber, Switch } from "antd";
+import { Form, Modal, Input, InputNumber, Switch, Button } from "antd";
 import PropTypes from "prop-types";
 
 
@@ -8,9 +8,15 @@ const InventoryForm = ({ visible, onClose, onSubmit, form }) => {
       title="Edit Product" 
       open={visible} 
       onCancel={onClose} 
-      onOk={() => form.submit()}
+      footer={[
+        <Button key="cancel" onClick={onClose}>Cancel</Button>,
+        <Button key="submit" type="primary" onClick={() => form.submit()}>Save</Button>
+      ]}
     >
       <Form form={form} onFinish={onSubmit} layout="vertical">
+        <Form.Item name="key" hidden={true}>
+          <Input />
+        </Form.Item>
         <Form.Item name="name" label="Product Name" rules={[{ required: true }]}>
           <Input />
         </Form.Item>
